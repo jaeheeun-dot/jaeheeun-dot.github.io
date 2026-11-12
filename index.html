@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
-<meta name="description" content="Jaehee Eun, multimedia storyteller and content producer based in Vienna.">
+<meta name="description" content="Jaehee Eun, Korean localization specialist and content producer based in Vienna. Korean localization, transcreation and LQA for games, apps, museums and cultural institutions.">
 <style>body{margin:0}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}[hidden]{display:none!important}</style>
 <title>Jaehee Eun Portfolio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -80,7 +80,7 @@ dl.brief dd{margin:0}
 .series{display:flex;flex-direction:column;gap:.7rem;padding-top:1rem;border-top:1px dashed var(--rule)}
 .series-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:.25rem 1rem}
 .series h4{font-size:1.1rem;font-weight:700}
-.views{font-family:var(--mono);font-size:.8rem;color:var(--accent);font-variant-numeric:tabular-nums;white-space:nowrap}
+.views{font-family:var(--mono);font-size:.8rem;color:var(--accent);font-variant-numeric:tabular-nums}
 .series p{font-size:.95rem}
 .strip{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.5rem}
 .strip img{aspect-ratio:4/5;object-fit:cover;width:100%;border:1px solid var(--rule);border-radius:3px;background:var(--card)}
@@ -119,7 +119,37 @@ dl.brief dd{margin:0}
 .contact .rows span{overflow-wrap:anywhere}
 footer{font-family:var(--mono);font-size:.75rem;color:var(--muted)}
 
+/* offers & languages */
+.offers{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem;max-width:48rem}
+.offer{background:var(--card);border:1px solid var(--rule);border-left:3px solid var(--accent);border-radius:4px;padding:.85rem 1rem;display:flex;flex-direction:column;gap:.3rem}
+.offer p{margin:0;font-size:.98rem;line-height:1.5}
+.langs{display:flex;flex-wrap:wrap;gap:.4rem;font-family:var(--mono);font-size:.8rem}
+.langs span{border:1px solid var(--rule);border-radius:3px;padding:.15rem .5rem;background:var(--card)}
+.langs b{font-weight:500;color:var(--accent)}
+.cta{display:inline-block;align-self:flex-start;background:var(--accent);color:var(--paper);font-family:var(--mono);font-size:.85rem;font-weight:500;text-decoration:none;padding:.6rem 1rem;border-radius:4px}
+.cta:hover{filter:brightness(1.08)}
+.pair{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:.5rem;font-size:.92rem;max-width:42rem}
+.pair div{background:var(--card);border:1px solid var(--rule);border-radius:4px;padding:.6rem .75rem}
+.pair .label{display:block;margin-bottom:.2rem}
+
+/* work with me */
+.work{display:flex;flex-direction:column;gap:2rem}
+.services{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+.service{background:var(--card);border:1px solid var(--rule);border-radius:6px;padding:1.25rem;display:flex;flex-direction:column;gap:.6rem;min-width:0}
+.service h3{font-size:1.15rem;font-weight:700}
+.service p{margin:0;font-size:.95rem}
+.service ul{margin:0;padding-left:1.1rem;font-size:.92rem}
+.service .for{font-family:var(--mono);font-size:.75rem;color:var(--muted);margin-top:auto;padding-top:.4rem;border-top:1px dashed var(--rule)}
+.process{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem;counter-reset:step;margin:0;padding:0;list-style:none}
+.process li{counter-increment:step;display:flex;flex-direction:column;gap:.3rem;font-size:.93rem;border-top:2px solid var(--ink);padding-top:.6rem}
+.process li::before{content:"0" counter(step);font-family:var(--mono);font-size:.75rem;color:var(--accent)}
+.process b{font-family:var(--display)}
+.terms{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;font-size:.93rem}
+.terms div{display:flex;flex-direction:column;gap:.2rem}
+
 @media (max-width:720px){
+  .offers,.services,.terms,.pair{grid-template-columns:minmax(0,1fr)}
+  .process{grid-template-columns:repeat(2,minmax(0,1fr))}
   .metrics{grid-template-columns:repeat(2,minmax(0,1fr))}
   .metric:nth-child(3){border-left:0;padding-left:0;border-top:1px solid var(--rule)}
   .metric:nth-child(4){border-top:1px solid var(--rule)}
@@ -148,15 +178,86 @@ footer{font-family:var(--mono);font-size:.75rem;color:var(--muted)}
   <header class="hero">
     <span class="label">Portfolio · Vienna, Austria</span>
     <h1>Jaehee Eun</h1>
-    <div class="role">Multimedia storyteller &amp; content producer</div>
-    <p class="thesis">I turn complex historical and social topics into stories people actually watch, share and remember: illustrated explainers, short-form video, documentary, narration scripts and interactive formats. Erasmus Mundus MA in History in the Public Sphere (CEU Vienna &amp; NOVA Lisbon).</p>
+    <div class="role">Korean localization &amp; cultural content</div>
+    <p class="thesis">I make games, apps and cultural institutions read naturally in Korean, and I turn complex history into stories people actually watch and share. Native Korean linguist with an Erasmus Mundus MA in History in the Public Sphere (CEU Vienna &amp; NOVA Lisbon), and 12K+ organic followers on my own Korean history channel.</p>
+    <div class="offers">
+      <div class="offer"><span class="label">For museums &amp; heritage sites</span><p>Korean versions of your brochures, audio guides and web pages, written by a historian so Korean visitors get the story, not a word-for-word translation.</p></div>
+      <div class="offer"><span class="label">For games &amp; apps</span><p>Korean localization and LQA that reads like it was written for Korean players: in-game text, UI, store pages and marketing copy, checked in context.</p></div>
+    </div>
+    <div class="langs" aria-label="Working languages">
+      <span><b>KO</b> Korean · native</span><span><b>EN</b> English · C1</span><span><b>DE</b> German · B2</span><span><b>ZH</b> Chinese · B1 (HSK 4)</span>
+    </div>
     <div class="links">
       <a href="https://www.instagram.com/ra_cooncoon/" target="_blank" rel="noopener">Instagram @ra_cooncoon</a>
       <a href="https://www.threads.net/@ra_cooncoon" target="_blank" rel="noopener">Threads</a>
       <a href="https://koreanracooncoon-spec.github.io/racooncoon/" target="_blank" rel="noopener">Past-Life Test</a>
       <a href="https://www.linkedin.com/in/jaehee-eun" target="_blank" rel="noopener">LinkedIn</a>
     </div>
+    <a class="cta" href="#work-with-me">Work with me →</a>
   </header>
+
+  <section class="cases" aria-labelledby="loc">
+    <div class="sec-head">
+      <span class="label">Paid client work</span>
+      <h2 id="loc">Localization &amp; translation</h2>
+      <p>English → Korean localization for commercial clients and international organisations. Client names are given only where the work is public.</p>
+    </div>
+
+    <!-- L1. Game localization -->
+    <article class="case">
+      <div class="meta">
+        <span class="ref">2026 – present</span>
+        <span>Game localization agency · freelance, under NDA</span>
+        <div class="tags"><span class="tag">Game localization</span><span class="tag">EN → KO</span><span class="tag">Style guide</span></div>
+      </div>
+      <div class="case-body">
+        <h3>Korean linguist for game localization</h3>
+        <dl class="brief">
+          <dt>Brief</dt><dd>Translate game text into Korean that fits the tone of each title and the limits of the interface.</dd>
+          <dt>Approach</dt><dd>Work in the agency's CAT environment against the client's glossary and style guide, keep character voices consistent across strings, respect placeholders and length limits, and flag source ambiguities with queries instead of guessing.</dd>
+          <dt>Result</dt><dd>Ongoing freelance assignments. Project names and text are confidential; samples available on request.</dd>
+        </dl>
+      </div>
+    </article>
+
+    <!-- L2. Airbnb -->
+    <article class="case">
+      <div class="meta">
+        <span class="ref">Upwork</span>
+        <span>Short-stay rental host · remote</span>
+        <div class="tags"><span class="tag">Website localization</span><span class="tag">Legal text</span><span class="tag">EN → KO</span></div>
+      </div>
+      <div class="case-body">
+        <h3>Rental website and house rules for Korean guests</h3>
+        <dl class="brief">
+          <dt>Brief</dt><dd>Make an English Airbnb host website, and the legal and regulatory text that goes with it, clear and trustworthy for Korean guests.</dd>
+          <dt>Approach</dt><dd>Localized the marketing pages into natural, polite Korean, and translated the legal text precisely, keeping its obligations intact rather than softening them for style.</dd>
+          <dt>Result</dt><dd>A Korean version of the site the host could publish as delivered.</dd>
+        </dl>
+        <div class="pair">
+          <div><span class="label">Marketing copy</span>Adapted: register, rhythm and selling points rewritten for Korean readers.</div>
+          <div><span class="label">Legal text</span>Translated: same meaning, same obligations, no creative liberties.</div>
+        </div>
+      </div>
+    </article>
+
+    <!-- L3. UNCK -->
+    <article class="case">
+      <div class="meta">
+        <span class="ref">2019 – 2020</span>
+        <span>UN Chronicle Korea, remote</span>
+        <div class="tags"><span class="tag">Translation</span><span class="tag">Transcreation</span><span class="tag">Social</span></div>
+      </div>
+      <div class="case-body">
+        <h3>UN Chronicle articles for Korean social media</h3>
+        <dl class="brief">
+          <dt>Brief</dt><dd>Bring UN Chronicle articles to Korean readers on social media.</dd>
+          <dt>Approach</dt><dd>Translated the articles from English into Korean, then condensed each into a short visual card-news series for Instagram, keeping the facts and terminology accurate while changing the format completely.</dd>
+          <dt>Topics</dt><dd>COVID-19 vaccine access, women's rights, child labour.</dd>
+        </dl>
+      </div>
+    </article>
+  </section>
 
   <section class="stats" aria-label="Channel results">
     <div class="metrics">
@@ -171,7 +272,7 @@ footer{font-family:var(--mono);font-size:.75rem;color:var(--muted)}
   <section class="cases" aria-labelledby="work">
     <div class="sec-head">
       <span class="label">Selected work</span>
-      <h2 id="work">Case files</h2>
+      <h2 id="work">Storytelling &amp; content</h2>
       <p>Most channel content is in Korean, made for a Korean audience. Each entry explains the brief, the approach and the result in English.</p>
     </div>
 
@@ -264,23 +365,6 @@ footer{font-family:var(--mono);font-size:.75rem;color:var(--muted)}
       </div>
     </article>
 
-    <!-- 3. UNCK -->
-    <article class="case">
-      <div class="meta">
-        <span class="ref">2019 – 2020</span>
-        <span>UN Chronicle Korea, remote</span>
-        <div class="tags"><span class="tag">Translation</span><span class="tag">Card news</span><span class="tag">Social</span></div>
-      </div>
-      <div class="case-body">
-        <h3>UN Chronicle stories as Instagram card news</h3>
-        <dl class="brief">
-          <dt>Brief</dt><dd>Bring UN Chronicle articles to Korean readers on social media.</dd>
-          <dt>Approach</dt><dd>Translated the articles from English into Korean, then condensed each into a short visual card-news series for Instagram.</dd>
-          <dt>Topics</dt><dd>COVID-19 vaccine access, women's rights, child labour.</dd>
-        </dl>
-      </div>
-    </article>
-
     <!-- 4. Gulbenkian -->
     <article class="case">
       <div class="meta">
@@ -359,11 +443,54 @@ footer{font-family:var(--mono);font-size:.75rem;color:var(--muted)}
     </div>
   </section>
 
+  <section class="work" id="work-with-me" aria-labelledby="wwm">
+    <div class="sec-head">
+      <span class="label">Hire me</span>
+      <h2 id="wwm">Work with me</h2>
+      <p>Three ways I can help, how a project runs, and what to expect after you write.</p>
+    </div>
+    <div class="services">
+      <div class="service">
+        <h3>Game &amp; app localization</h3>
+        <p>English → Korean translation of in-game text, UI, store pages and patch notes.</p>
+        <ul><li>Works from your glossary and style guide, or builds one</li><li>CAT tools, placeholders and length limits respected</li><li>Queries raised early, not guessed</li></ul>
+        <span class="for">For studios, publishers and LSPs</span>
+      </div>
+      <div class="service">
+        <h3>Korean LQA &amp; review</h3>
+        <p>In-context checks of an existing Korean build, site or app before or after launch.</p>
+        <ul><li>Mistranslations, truncation, tone and terminology</li><li>Each issue logged with screenshot, severity and fix</li><li>Short summary of patterns to fix at the source</li></ul>
+        <span class="for">For games, apps and websites already in Korean</span>
+      </div>
+      <div class="service">
+        <h3>Korean content for culture &amp; tourism</h3>
+        <p>Brochures, audio-guide scripts, exhibition texts and web pages for Korean visitors.</p>
+        <ul><li>Written by a historian, checked against sources</li><li>Adapted for Korean visitors' context, not word-for-word</li><li>Social cut-downs for Instagram on request</li></ul>
+        <span class="for">For museums, palaces, heritage sites and tourism boards</span>
+      </div>
+    </div>
+    <div>
+      <span class="label">How I work</span>
+      <ol class="process" style="margin-top:.75rem">
+        <li><b>Brief</b>Send the files, audience and deadline. I reply with questions and a quote.</li>
+        <li><b>Test</b>Happy to do a short paid or free sample so you can judge the fit.</li>
+        <li><b>Delivery</b>Translated or written text, plus a glossary and notes on any choices.</li>
+        <li><b>Revision</b>One round of revisions is included in every quote.</li>
+      </ol>
+    </div>
+    <div class="terms">
+      <div><span class="label">Reply time</span>Within one working day (CET), usually the same day.</div>
+      <div><span class="label">Pricing</span>Per word for translation and LQA, per project for content. Quote within 24 hours of the brief.</div>
+      <div><span class="label">Format</span>Remote, project-based or retainer. In person in Vienna; Budapest and Prague by arrangement.</div>
+    </div>
+    <a class="cta" href="mailto:jaeheeun@gmail.com?subject=Project%20enquiry">Send a brief →</a>
+  </section>
+
   <section class="contact" aria-labelledby="contact">
     <h2 id="contact">Contact</h2>
-    <p>Based in Vienna and available for remote, project-based work.<br>Working languages: English (C1), Korean (native), German (B2).</p>
+    <p>Based in Vienna and available for remote, project-based work.<br>Working languages: Korean (native), English (C1), German (B2), Chinese (B1, HSK 4).</p>
     <div class="rows">
-      <span>Email</span><span>jaeheeun@gmail.com</span>
+      <span>Email</span><span><a href="mailto:jaeheeun@gmail.com">jaeheeun@gmail.com</a></span>
       <span>LinkedIn</span><span>linkedin.com/in/jaehee-eun</span>
       <span>Instagram</span><span>@ra_cooncoon</span>
     </div>

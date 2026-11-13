@@ -111,13 +111,32 @@ dl.brief dd{margin:0}
 .cap p{margin:0;font-size:.97rem}
 
 /* contact */
-.contact{display:flex;flex-direction:column;gap:1rem;padding:2rem;background:var(--accent-soft);border-radius:6px}
-.contact h2{font-size:1.6rem}
-.contact p{margin:0;max-width:40rem}
-.contact .rows{display:grid;grid-template-columns:7rem minmax(0,1fr);gap:.35rem 1rem;font-family:var(--mono);font-size:.88rem}
-.contact .rows span:nth-child(odd){color:var(--muted)}
-.contact .rows span{overflow-wrap:anywhere}
-footer{font-family:var(--mono);font-size:.75rem;color:var(--muted)}
+<section id="contact">
+  <h2>Send a brief</h2>
+  <p>Tell me about your project — I usually reply within 24 hours.</p>
+
+  <form action="https://formspree.io/f/https://formspree.io/f/mjywgyoa" method="POST" class="brief-form">
+    <label>Name <input type="text" name="name" required></label>
+    <label>Email <input type="email" name="email" required></label>
+    <label>Organisation <input type="text" name="organisation"></label>
+    <label>What do you need?
+      <select name="service">
+        <option>Korean localization / translation</option>
+        <option>History & culture content (illustrated, video, script)</option>
+        <option>Game LQA (Korean, Chinese source)</option>
+        <option>Other</option>
+      </select>
+    </label>
+    <label>Brief & timeline <textarea name="message" rows="5" required></textarea></label>
+    <input type="hidden" name="_subject" value="New brief from portfolio">
+    <button type="submit">Send brief</button>
+  </form>
+
+  <p class="email-line">Or email me directly:
+    <strong id="email">jaeheeun@gmail.com</strong>
+    <button type="button" onclick="navigator.clipboard.writeText('jaeheeun@gmail.com').then(()=>this.textContent='Copied ✓')">Copy</button>
+  </p>
+</section>
 
 /* offers & languages */
 .offers{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem;max-width:48rem}

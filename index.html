@@ -110,33 +110,26 @@ dl.brief dd{margin:0}
 .cap h3{font-size:1.1rem;font-weight:700}
 .cap p{margin:0;font-size:.97rem}
 
-/* contact */
-<section id="contact">
-  <h2>Send a brief</h2>
-  <p>Tell me about your project — I usually reply within 24 hours.</p>
-
-  <form action="https://formspree.io/f/https://formspree.io/f/mjywgyoa" method="POST" class="brief-form">
-    <label>Name <input type="text" name="name" required></label>
-    <label>Email <input type="email" name="email" required></label>
-    <label>Organisation <input type="text" name="organisation"></label>
-    <label>What do you need?
-      <select name="service">
-        <option>Korean localization / translation</option>
-        <option>History & culture content (illustrated, video, script)</option>
-        <option>Game LQA (Korean, Chinese source)</option>
-        <option>Other</option>
-      </select>
-    </label>
-    <label>Brief & timeline <textarea name="message" rows="5" required></textarea></label>
-    <input type="hidden" name="_subject" value="New brief from portfolio">
-    <button type="submit">Send brief</button>
-  </form>
-
-  <p class="email-line">Or email me directly:
-    <strong id="email">jaeheeun@gmail.com</strong>
-    <button type="button" onclick="navigator.clipboard.writeText('jaeheeun@gmail.com').then(()=>this.textContent='Copied ✓')">Copy</button>
-  </p>
-</section>
+/* contact & brief form */
+.contact{background:var(--card);border:1px solid var(--rule);border-radius:6px;padding:2rem;display:flex;flex-direction:column;gap:1.25rem;scroll-margin-top:1.5rem}
+.contact h2{font-size:clamp(1.6rem,4vw,2.2rem);font-weight:700}
+.contact > p{margin:0;color:var(--muted);max-width:44rem}
+.brief-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;max-width:44rem}
+.brief-form label{display:flex;flex-direction:column;gap:.35rem;font-family:var(--mono);font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);min-width:0}
+.brief-form .full{grid-column:1/-1}
+.brief-form input,.brief-form select,.brief-form textarea{font:inherit;font-family:var(--body);font-size:1rem;letter-spacing:0;text-transform:none;color:var(--ink);background:var(--paper);border:1px solid var(--rule);border-radius:4px;padding:.6rem .7rem;width:100%}
+.brief-form textarea{resize:vertical;min-height:8rem}
+.brief-form input:focus-visible,.brief-form select:focus-visible,.brief-form textarea:focus-visible,.contact button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.brief-form button{grid-column:1/-1;justify-self:start;appearance:none;border:0;cursor:pointer;background:var(--accent);color:var(--paper);font-family:var(--mono);font-size:.85rem;font-weight:500;padding:.7rem 1.2rem;border-radius:4px}
+.brief-form button:hover{filter:brightness(1.08)}
+.brief-form button[disabled]{opacity:.6;cursor:wait}
+.form-status{grid-column:1/-1;margin:0;font-size:.95rem}
+.form-status.ok{color:var(--accent)}
+.form-status.err{color:#b4443a}
+.contact .rows{display:grid;grid-template-columns:7rem minmax(0,1fr);gap:.4rem 1rem;font-size:.95rem;padding-top:1rem;border-top:1px dashed var(--rule);max-width:44rem}
+.contact .rows > span:nth-child(odd){font-family:var(--mono);font-size:.75rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);padding-top:.2rem}
+.copy{appearance:none;border:1px solid var(--rule);background:var(--paper);color:var(--muted);font-family:var(--mono);font-size:.72rem;padding:.1rem .5rem;border-radius:3px;margin-left:.5rem;cursor:pointer;vertical-align:middle}
+footer{font-family:var(--mono);font-size:.75rem;color:var(--muted)}
 
 /* offers & languages */
 .offers{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem;max-width:48rem}
@@ -179,8 +172,9 @@ dl.brief dd{margin:0}
   dl.brief,.credits{grid-template-columns:minmax(0,1fr);gap:.1rem}
   dl.brief dd,.credits span:nth-child(even){margin:0 0 .5rem}
   .contact{padding:1.25rem}
+  .brief-form{grid-template-columns:minmax(0,1fr)}
   .contact .rows{grid-template-columns:minmax(0,1fr);gap:0}
-  .contact .rows span:nth-child(even){margin-bottom:.5rem}
+  .contact .rows > span:nth-child(even){margin-bottom:.5rem}
 }
 @media (prefers-reduced-motion:no-preference){
   .hero > *{animation:rise .6s ease-out both}
@@ -502,21 +496,63 @@ dl.brief dd{margin:0}
       <div><span class="label">Pricing</span>Per word for translation and LQA, per project for content. Quote within 24 hours of the brief.</div>
       <div><span class="label">Format</span>Remote, project-based or retainer. In person in Vienna; Budapest and Prague by arrangement.</div>
     </div>
-    <a class="cta" href="mailto:jaeheeun@gmail.com?subject=Project%20enquiry">Send a brief →</a>
+    <a class="cta" href="#contact">Send a brief →</a>
   </section>
 
-  <section class="contact" aria-labelledby="contact">
-    <h2 id="contact">Contact</h2>
-    <p>Based in Vienna and available for remote, project-based work.<br>Working languages: Korean (native), English (C1), German (B2), Chinese (B1, HSK 4).</p>
+  <section class="contact" id="contact" aria-labelledby="contact-h">
+    <h2 id="contact-h">Send a brief</h2>
+    <p>Tell me about your project: what it is, who it's for and when you need it. I reply within one working day (CET).</p>
+
+    <form class="brief-form" id="brief-form" action="https://formspree.io/f/mjywgyoa" method="POST">
+      <label>Name <input type="text" id="f-name" name="name" autocomplete="name" required></label>
+      <label>Email <input type="email" id="f-email" name="email" autocomplete="email" required></label>
+      <label>Organisation <input type="text" id="f-org" name="organisation" autocomplete="organization"></label>
+      <label>What do you need?
+        <select id="f-service" name="service">
+          <option>Game / app localization (EN → KO)</option>
+          <option>Korean LQA &amp; review (incl. Chinese source)</option>
+          <option>Korean content for culture &amp; tourism</option>
+          <option>History &amp; culture content (illustrated, video, script)</option>
+          <option>Other</option>
+        </select>
+      </label>
+      <label class="full">Brief &amp; timeline <textarea id="f-message" name="message" rows="5" required placeholder="Word count or scope, audience, deadline, links to files"></textarea></label>
+      <input type="hidden" name="_subject" value="New brief from portfolio">
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none" aria-hidden="true">
+      <button type="submit" id="f-submit">Send brief →</button>
+      <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+    </form>
+
     <div class="rows">
-      <span>Email</span><span><a href="mailto:jaeheeun@gmail.com">jaeheeun@gmail.com</a></span>
-      <span>LinkedIn</span><span>linkedin.com/in/jaehee-eun</span>
-      <span>Instagram</span><span>@ra_cooncoon</span>
+      <span>Email</span><span><span id="email-addr">jaeheeun@gmail.com</span><button type="button" class="copy" id="copy-email">Copy</button></span>
+      <span>LinkedIn</span><span><a href="https://www.linkedin.com/in/jaehee-eun" target="_blank" rel="noopener">linkedin.com/in/jaehee-eun</a></span>
+      <span>Instagram</span><span><a href="https://www.instagram.com/ra_cooncoon/" target="_blank" rel="noopener">@ra_cooncoon</a></span>
+      <span>Languages</span><span>Korean (native), English (C1), German (B2), Chinese (B1, HSK 4)</span>
     </div>
   </section>
 
   <footer>Jaehee Eun · Updated November 2026 </footer>
 </div>
 
+<script>
+(function(){
+  var form=document.getElementById('brief-form'),status=document.getElementById('form-status'),btn=document.getElementById('f-submit');
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    btn.disabled=true;status.className='form-status';status.textContent='Sending…';
+    fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}})
+      .then(function(r){if(!r.ok)throw r;form.reset();status.className='form-status ok';status.textContent='Thank you! Your brief has been sent. I will reply within one working day.';})
+      .catch(function(){status.className='form-status err';status.textContent='Sorry, the form could not be sent. Please email me at jaeheeun@gmail.com instead.';})
+      .finally(function(){btn.disabled=false;});
+  });
+  var cb=document.getElementById('copy-email');
+  cb.addEventListener('click',function(){
+    var t='jaeheeun@gmail.com';
+    function done(){cb.textContent='Copied ✓';setTimeout(function(){cb.textContent='Copy';},2000);}
+    if(navigator.clipboard){navigator.clipboard.writeText(t).then(done,select);}else{select();}
+    function select(){var r=document.createRange();r.selectNodeContents(document.getElementById('email-addr'));var s=window.getSelection();s.removeAllRanges();s.addRange(r);}
+  });
+})();
+</script>
 </body>
 </html>
